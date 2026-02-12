@@ -54,6 +54,26 @@ Analyze and explain a pull request to help review it effectively. Summarizes wha
 - Review Guidance (files to inspect closely, dependent changes)
 - UI / Functional Changes (local testing needs, manual verification flows)
 
+### conventional-comments
+
+Format review comments following the [Conventional Comments](https://conventionalcomments.org/) standard. Provides labels, decorations, communication best practices, and examples for clear, actionable feedback.
+
+**Use when:**
+- Writing code review comments
+- Giving PR feedback
+- RFC reviews, peer reviews, or any written review process
+
+**Format:**
+```
+<label> [decorations]: <subject>
+
+[discussion]
+```
+
+**Labels:** `praise`, `nitpick`, `suggestion`, `issue`, `todo`, `question`, `thought`, `chore`, `note` (plus optional `typo`, `polish`, `quibble`)
+
+**Decorations:** `(non-blocking)`, `(blocking)`, `(if-minor)`, and custom (e.g., `security`, `ux`)
+
 ### challenge-me
 
 Direct, no-comfort technical advisor mode for counting/estimation and architecture/design. Challenges ideas, questions assumptions, and surfaces blind spots.
@@ -87,6 +107,9 @@ Write the PR description
 ```
 ```
 Review this pull request
+```
+```
+Help me write review comments for this PR
 ```
 ```
 Challenge my design for this feature
