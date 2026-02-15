@@ -56,6 +56,28 @@ Decorations add context inside parentheses after the label:
 
 Custom decorations (e.g., `security`, `ux`, `test`, `performance`) MAY be added to further classify comments. Keep them minimal — too many decorations hurt readability.
 
+## Code Review Formatting
+
+All comment output MUST be valid GitHub-flavored markdown — assume it will be copy-pasted into a PR comment.
+
+### Code references
+
+Only include explicit file paths or line references when pointing the reader to a **different** location than where the comment is placed (e.g., related code in another file, a shared utility, a test that needs updating), otherwise the localisation is handeled by GitHub's review UI.
+
+### Code in comments
+
+- Wrap inline code (variable names, function calls, values) in single backticks: `` `myFunction()` ``
+- Use fenced code blocks with a language tag for multi-line code snippets:
+
+````markdown
+```python
+def example():
+    return True
+```
+````
+
+- When suggesting a replacement, show both the current and proposed code in fenced blocks
+
 ## Communication Best Practices
 
 ### Be curious
@@ -87,38 +109,59 @@ Knowledge shared with patience and kindness lands more deeply and ripples out to
 ## Examples
 
 **Praise:**
+
 > **praise:** Beautiful test coverage — the edge cases are well thought out.
 
-**Suggestion with decoration:**
+**Suggestion with code:**
+
 > **suggestion (security):** I'm a bit concerned that we are implementing our own DOM purifying function here.
 >
 > Could we consider using the framework's built-in sanitizer instead?
+>
+> ```typescript
+> // Instead of
+> function sanitize(input: string) { ... }
+>
+> // Use
+> import { sanitize } from '@angular/core';
+> ```
 
 **Issue with decoration:**
+
 > **issue (ux, non-blocking):** These buttons should be red, but let's handle this in a follow-up.
 
 **Question with decoration:**
+
 > **question (non-blocking):** At this point, does it matter which thread has won?
 >
 > Maybe to prevent a race condition we should keep looping until they've all won?
 
 **Nitpick:**
+
 > **nitpick:** `little star` => `little bat`
 >
 > Can we update the other references as well?
 
+**Cross-file reference (when pointing to a different location):**
+
+> **suggestion:** This validation duplicates the logic in `src/utils/validate.ts#L30-L45`. Could we reuse `validateInput()` here instead?
+
 **Chore:**
+
 > **chore:** Let's run the `lint-check` CI job to make sure this doesn't break any known references.
 >
 > Here are the [docs for running this job](#). Feel free to reach out if you need any help!
 
 **Combined suggestion (batching similar feedback):**
+
 > **polish:** Could we rename all `m_X` variables to just `X`? Hungarian Notation isn't followed in this project.
 >
 > For example:
+>
 > ```typescript
 > // Instead of
 > interface Wizard { m_foo: string; }
+>
 > // Use
 > interface Wizard { foo: string; }
 > ```
