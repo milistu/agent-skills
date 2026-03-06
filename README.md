@@ -13,6 +13,7 @@ Skills follow the [Agent Skills](https://agentskills.io/) format.
 | [pr-message](#pr-message) | Concise, high-signal PR descriptions | "Write a PR description" |
 | [pr-review](#pr-review) | Analyze a PR for effective review | "Review this PR", "Explain this pull request" |
 | [challenge-me](#challenge-me) | Blunt technical advisor mode | "Challenge my design", "Pressure-test this" |
+| [humanizer](#humanizer) | Remove signs of AI writing from text | "Humanize this text", "Make it sound less AI" |
 | [apple-human-interface-guidelines](#apple-human-interface-guidelines) | Apple HIG reference across all platforms | "Review my UI for HIG compliance" |
 
 ---
@@ -63,6 +64,27 @@ Direct, no-comfort technical advisor mode. Challenges ideas, questions assumptio
 - **Architecture & Design** — pressure-test boundaries, ask what can fail, call out unnecessary 
 - **Counting & Estimation** — break "quick/easy" into concrete tasks, surface hidden work
 complexity
+
+---
+
+## Writing
+
+### humanizer
+
+Detect and remove signs of AI-generated writing from text. Based on documented, research-backed patterns from [Wikipedia's Signs of AI Writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing).
+
+**Use when:** writing, editing, or rewriting text to sound more natural and avoid AI detection patterns.
+
+**What it catches:**
+
+| Category | Examples |
+|----------|----------|
+| AI vocabulary | "delve", "tapestry", "vibrant", "pivotal", "foster", "underscore" |
+| Inflated significance | "serves as a testament to", "marking a pivotal moment" |
+| Promotional puffery | "nestled in the heart of", "boasts a diverse array" |
+| Structural tells | "not just X, but also Y", rule-of-three, "despite challenges" |
+| Grammar quirks | "serves as" instead of "is", synonym cycling, dangling "-ing" phrases |
+| Style artifacts | title case headings, bold-colon lists, em dash overuse |
 
 ---
 
@@ -127,6 +149,9 @@ Review this pull request
 ```
 ```
 Challenge my design for this feature
+```
+```
+Humanize this text — it sounds too AI-generated
 ```
 ```
 Review my UI against Apple HIG
