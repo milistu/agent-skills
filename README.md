@@ -1,92 +1,107 @@
 # Agent Skills
 
-A collection of skills for AI coding agents focused on developer workflow. Skills are packaged instructions that extend agent capabilities.
+A collection of skills for AI coding agents. Skills are packaged instructions that extend agent capabilities, from commit hygiene to full design system references.
 
 Skills follow the [Agent Skills](https://agentskills.io/) format.
 
-## Available Skills
+## Skills at a Glance
+
+| Skill | What it does | Trigger phrases |
+|-------|-------------|-----------------|
+| [conventional-commits](#conventional-commits) | Commit messages following the Conventional Commits spec | "Write a commit message", "Commit my changes" |
+| [conventional-comments](#conventional-comments) | Structured code review comments | "Write review comments", "Give PR feedback" |
+| [pr-message](#pr-message) | Concise, high-signal PR descriptions | "Write a PR description" |
+| [pr-review](#pr-review) | Analyze a PR for effective review | "Review this PR", "Explain this pull request" |
+| [challenge-me](#challenge-me) | Blunt technical advisor mode | "Challenge my design", "Pressure-test this" |
+| [apple-human-interface-guidelines](#apple-human-interface-guidelines) | Apple HIG reference across all platforms | "Review my UI for HIG compliance" |
+
+---
+
+## Developer Workflow
 
 ### conventional-commits
 
-Generate commit messages following the [Conventional Commits v1.0.0](https://www.conventionalcommits.org/en/v1.0.0/) specification with Angular convention types. Contains structured rules, type definitions, and scope conventions.
+Generate commit messages following the [Conventional Commits v1.0.0](https://www.conventionalcommits.org/en/v1.0.0/) specification with Angular convention types.
 
-**Use when:**
-- Creating git commits
-- Writing or formatting commit messages
-- Enforcing consistent commit conventions across a project
+**Use when:** creating git commits, writing commit messages, or enforcing consistent commit conventions.
 
-**Types covered:**
-- `feat` — New feature (SemVer MINOR)
-- `fix` — Bug fix (SemVer PATCH)
-- `build`, `chore`, `ci`, `docs`, `style`, `refactor`, `perf`, `test`
-
-### pr-message
-
-Write concise, high-signal GitHub pull request descriptions that explain intent, impact, and risk without duplicating information already visible in GitHub.
-
-**Use when:**
-- "Write a PR description"
-- "Help me write the PR message"
-- Opening a pull request and need a well-structured summary
-
-**Sections covered:**
-- Summary (what and why)
-- What Changed (behavioral/functional changes only)
-- Testing (concrete verification steps)
-- Screenshots (UI changes only)
-- Risk / Rollout (feature flags, migrations, rollback)
-- Notes for Reviewers (tricky logic, non-obvious decisions)
-
-### pr-review
-
-Analyze and explain a pull request to help review it effectively. Summarizes what changed, why, how the pieces fit together, and what risks or concerns deserve attention.
-
-**Use when:**
-- "Review this PR"
-- "Explain this pull request"
-- "What should I look for in this PR?"
-- Preparing to review someone else's code
-
-**Analysis areas:**
-- Understanding (problem, solution, core vs supporting changes)
-- Risk & Correctness (bugs, edge cases, missing tests, rollback concerns)
-- Architecture & Consistency (boundaries, patterns, coupling)
-- Review Guidance (files to inspect closely, dependent changes)
-- UI / Functional Changes (local testing needs, manual verification flows)
+**Types:** `feat`, `fix`, `build`, `chore`, `ci`, `docs`, `style`, `refactor`, `perf`, `test`
 
 ### conventional-comments
 
-Format review comments following the [Conventional Comments](https://conventionalcomments.org/) standard. Provides labels, decorations, communication best practices, and examples for clear, actionable feedback.
+Format review comments following the [Conventional Comments](https://conventionalcomments.org/) standard. Provides labels, decorations, and communication best practices for clear, actionable feedback.
 
-**Use when:**
-- Writing code review comments
-- Giving PR feedback
-- RFC reviews, peer reviews, or any written review process
-
-**Format:**
-```
-<label> [decorations]: <subject>
-
-[discussion]
-```
+**Use when:** writing code review comments, giving PR feedback, or any written review process.
 
 **Labels:** `praise`, `nitpick`, `suggestion`, `issue`, `todo`, `question`, `thought`, `chore`, `note` (plus optional `typo`, `polish`, `quibble`)
 
 **Decorations:** `(non-blocking)`, `(blocking)`, `(if-minor)`, and custom (e.g., `security`, `ux`)
 
+### pr-message
+
+Write concise, high-signal GitHub pull request descriptions that explain intent, impact, and risk without duplicating information already visible in GitHub.
+
+**Use when:** opening a pull request and you need a well-structured summary.
+
+**Sections:** Summary, What Changed, Testing, Screenshots (UI only), Risk / Rollout, Notes for Reviewers
+
+### pr-review
+
+Analyze and explain a pull request to help review it effectively. Summarizes what changed, why, how the pieces fit together, and what risks deserve attention.
+
+**Use when:** preparing to review someone else's code or trying to understand a PR quickly.
+
+**Analysis areas:** Understanding, Risk & Correctness, Architecture & Consistency, Review Guidance, UI / Functional Changes
+
 ### challenge-me
 
-Direct, no-comfort technical advisor mode for counting/estimation and architecture/design. Challenges ideas, questions assumptions, and surfaces blind spots.
+Direct, no-comfort technical advisor mode. Challenges ideas, questions assumptions, and surfaces blind spots.
 
-**Use when:**
-- "Challenge my design"
-- "Pressure-test this architecture"
-- "Is this estimate realistic?"
-- Evaluating tradeoffs or scoping work
+**Use when:** evaluating tradeoffs, scoping work, or pressure-testing an architecture decision.
 
 **Focus areas:**
-- Counting & Estimation — break "quick/easy" into concrete tasks, surface hidden work (edge cases, tests, migrations, rollback, security)
-- Architecture & Design — pressure-test boundaries, ask what can fail, call out unnecessary complexity
+- **Architecture & Design** — pressure-test boundaries, ask what can fail, call out unnecessary 
+- **Counting & Estimation** — break "quick/easy" into concrete tasks, surface hidden work
+complexity
+
+---
+
+## Design & UI
+
+### apple-human-interface-guidelines
+
+Comprehensive [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/) reference covering all Apple platforms. Contains 150+ reference documents organized by category.
+
+**Use when:** designing or reviewing UI for iOS, iPadOS, macOS, tvOS, watchOS, or visionOS — or applying Apple's design principles to any app.
+
+**Platforms:** iOS, iPadOS, macOS, tvOS, watchOS, visionOS
+
+**Coverage:**
+
+| Category | What's included |
+|----------|----------------|
+| Getting Started | Platform-specific design fundamentals and constraints |
+| Foundations | Accessibility, color, dark mode, typography, layout, motion, privacy, branding |
+| Patterns | Data entry, search, feedback, loading, onboarding, modality, navigation, media |
+| Components | Buttons, menus, lists, tabs, sheets, alerts, pickers, toggles, charts, and more |
+| Inputs | Touch, Apple Pencil, keyboard, game controllers, Digital Crown, gaze (visionOS) |
+| Technologies | Apple Pay, Sign in with Apple, HealthKit, ARKit, CarPlay, SharePlay, Generative AI |
+
+**Common tasks quick reference:**
+
+| Task | References loaded |
+|------|-------------------|
+| Building a login screen | Privacy, Sign in with Apple, Managing Accounts |
+| Designing a settings screen | Settings patterns, Toggles |
+| Choosing colors / dark mode | Color guidelines, Dark Mode |
+| Implementing navigation | Tab bars, Sidebars, Split views |
+| Accessibility audit | Accessibility foundations, VoiceOver |
+| Designing a form | Entering data, Text fields, Pickers |
+| Building for visionOS | visionOS fundamentals, Spatial layout, Immersive experiences |
+
+Many foundations (accessibility, color, typography, motion, privacy, writing) are applicable beyond Apple platforms to web and cross-platform development.
+
+---
 
 ## Installation
 
@@ -96,11 +111,13 @@ npx skills add milistu/agent-skills
 
 ## Usage
 
-Skills are automatically available once installed. The agent will use them when relevant tasks are detected.
+Skills are automatically available once installed. The agent uses them when relevant tasks are detected.
 
-**Examples:**
 ```
 Write a commit message for my changes
+```
+```
+Write review comments for this PR
 ```
 ```
 Write the PR description
@@ -109,8 +126,18 @@ Write the PR description
 Review this pull request
 ```
 ```
-Help me write review comments for this PR
-```
-```
 Challenge my design for this feature
 ```
+```
+Review my UI against Apple HIG
+```
+
+## Skill Structure
+
+Each skill contains:
+- `SKILL.md` — Instructions for the agent
+- `reference/` — Supporting documentation (optional)
+
+## License
+
+MIT
