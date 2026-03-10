@@ -15,6 +15,7 @@ Skills follow the [Agent Skills](https://agentskills.io/) format.
 | [challenge-me](#challenge-me) | Blunt technical advisor mode | "Challenge my design", "Pressure-test this" |
 | [humanizer](#humanizer) | Remove signs of AI writing from text | "Humanize this text", "Make it sound less AI" |
 | [apple-human-interface-guidelines](#apple-human-interface-guidelines) | Apple HIG reference across all platforms | "Review my UI for HIG compliance" |
+| [google-adk](#google-adk) | Google Agent Development Kit reference for building AI agents | "Build an ADK agent", "Deploy my ADK agent to GCP" |
 
 ---
 
@@ -125,6 +126,33 @@ Many foundations (accessibility, color, typography, motion, privacy, writing) ar
 
 ---
 
+## AI Agent Development
+
+### google-adk
+
+[Google Agent Development Kit](https://google.github.io/adk-docs/) reference for building AI agents in Python, TypeScript, Go, and Java. Contains 90+ reference files organized by topic. The 10 most code-heavy files are split into per-language sidecars so you load only what you need.
+
+**Use when:** building or configuring ADK agents, wiring tools, managing sessions and state, setting up multi-agent pipelines, streaming with the Gemini Live API, deploying to GCP, or evaluating agent behavior.
+
+**Languages:** Python (primary), TypeScript, Go, Java
+
+**Coverage:**
+
+| Category | What's included |
+|----------|----------------|
+| Agents | LlmAgent, SequentialAgent, LoopAgent, ParallelAgent, custom BaseAgent, multi-agent routing |
+| Tools | Function tools, MCP, OpenAPI, tool authentication, action confirmations |
+| Sessions & Memory | Session service, state prefixes, MemoryService, cross-session recall |
+| Callbacks | Before/after model, tool, and agent callbacks |
+| Streaming | Gemini Live API, LiveRequestQueue, run_live(), audio/video/images |
+| Deployment | Vertex AI Agent Engine, Cloud Run, GKE |
+| Context | Context caching, context compression (EventsCompactionConfig) |
+| Evaluation | Criteria, test writing, user simulation |
+| A2A Protocol | Agent-to-Agent communication |
+| Observability | Logging, Cloud Trace |
+
+---
+
 ## Installation
 
 ```bash
@@ -155,6 +183,9 @@ Humanize this text — it sounds too AI-generated
 ```
 ```
 Review my UI against Apple HIG
+```
+```
+How do I add OAuth2 authentication to my ADK tool?
 ```
 
 ## Skill Structure
